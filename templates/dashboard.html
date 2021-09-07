@@ -1,0 +1,102 @@
+{% extends 'structure.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block main %}
+<h1>Dashboard</h1>
+<p>
+  <a href="/createtask" class="pure-button pure-button-primary"><i class="fas fa-plus-circle"></i> New Task</a>
+</p>
+  <h3>Current Tasks</h3>
+  {% if current %}
+  <table class="pure-table pure-table-bordered">
+      <thead>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        {% for task in current%}
+        <tr>
+          <td>{{task[1]}}</td>
+          <td>{{task[2]}}</td>
+          <td>{% if task[3] == 0 %} not done {% else %} done {% endif %}</td>
+          <td><a href="/updatetask/{{task[0]}}"><i class="fas fa-edit"></i></a> - <a href="/deletetask/{{task[0]}}"><i class="fas fa-trash"></i></a></td!-->
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  No current tasks to display.
+  {% endif %}
+  <h3>Overdue Tasks</h3>
+  {% if overdue %}
+  <table class="pure-table pure-table-bordered">
+      <thead>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        {% for task in overdue%}
+        <tr>
+          <td>{{task[1]}}</td>
+          <td>{{task[2]}}</td>
+          <td>{% if task[3] == 0 %} not done {% else %} done {% endif %}</td>
+          <td><a href="/updatetask/{{task[0]}}"><i class="fas fa-edit"></i></a> - <a href="/deletetask/{{task[0]}}"><i class="fas fa-trash"></i></a></td!-->
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  No overdue tasks to display.
+  {% endif %}
+  <h3>Upcoming Tasks</h3>
+  {% if upcoming %}
+  <table class="pure-table pure-table-bordered">
+      <thead>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        {% for task in upcoming%}
+        <tr>
+          <td>{{task[1]}}</td>
+          <td>{{task[2]}}</td>
+          <td>{% if task[3] == 0 %} not done {% else %} done {% endif %}</td>
+          <td><a href="/updatetask/{{task[0]}}"><i class="fas fa-edit"></i></a> - <a href="/deletetask/{{task[0]}}"><i class="fas fa-trash"></i></a></td!-->
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  No upcoming tasks to display.
+  {% endif %}
+  <h3>Done Tasks</h3>
+  {% if done %}
+  <table class="pure-table pure-table-bordered">
+      <thead>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        {% for task in done%}
+        <tr>
+          <td>{{task[1]}}</td>
+          <td>{{task[2]}}</td>
+          <td>{% if task[3] == 0 %} not done {% else %} done {% endif %}</td>
+          <td><a href="/updatetask/{{task[0]}}"><i class="fas fa-edit"></i></a> - <a href="/deletetask/{{task[0]}}"><i class="fas fa-trash"></i></a></td!-->
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  No done tasks to display.
+  {% endif %}
+{% endblock main %}

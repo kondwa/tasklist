@@ -1,0 +1,15 @@
+{% extends 'structure.html' %}
+
+{% block title %}Sign In{% endblock title %}
+
+{% block main %}
+<h1>Sign In</h1>
+{{message}}
+<form  action="/signin" method="post" class="pure-form pure-form-stacked">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign In" class="pure-button pure-button-primary">
+</form>
+<p>Or</p>
+<p><a href="/signup" class="pure-button pure-button-primary">Sign up</a></p>
+{% endblock main %}

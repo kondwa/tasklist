@@ -1,0 +1,12 @@
+{% extends 'structure.html' %}
+
+{% block title %} New Task {% endblock title %}
+
+{% block main %}
+<h1>New Task</h1>
+<form action="/createtask" method="post" class="pure-form">
+    <input type="text" name="task" placeholder="New Task">
+    <input type="date" name="duedate" placeholder="Due Date">
+    <button type="submit" class="pure-button pure-button-primary"><i class="fas fa-save"></i> Save</button>
+</form>
+{% endblock main %}

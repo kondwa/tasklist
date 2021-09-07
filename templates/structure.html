@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <link rel="stylesheet" href="/static/css/fa/css/all.css">
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading pure-menu-link"><i class="fas fa-tasks"></i> TASKLIST</a>
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item"><a href="/" class="pure-menu-link"><i class="fas fa-home"></i> Home</a></li>
+          <li class="pure-menu-item"><a href="/about" class="pure-menu-link"><i class="fas fa-address-card"></i> About</a></li>
+          <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+          {% if 'username' in session and 'admin' in session %}
+          <li class="pure-menu-item"><a href="/admin" class="pure-menu-link"><i class="fas fa-tachometer-alt"></i> Admin</a></li>
+          {% endif %}
+          </li>
+          <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+            <a href="#" class="pure-menu-link"><i class="fas fa-user-shield"></i> Account</a>
+            <ul class="pure-menu-children">
+              {% if 'username' in session %}
+                <li class="pure-menu-item"><a href="/signout" class="pure-menu-link"><i class="fas fa-sign-out-alt"></i> Sign out</a></li>
+              {% else %}
+                <li class="pure-menu-item"><a href="/signin" class="pure-menu-link"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
+                <li class="pure-menu-item"><a href="/signup" class="pure-menu-link"><i class="fas fa-user-plus"></i> Sign up</a></li>
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      {% block main %}
+      {% endblock main %}
+
+      <div class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item"><a href="/terms" class="pure-menu-link">Terms</a></li>
+          <li class="pure-menu-item"><a href="/privacy" class="pure-menu-link">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    </body>
+</html>

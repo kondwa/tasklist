@@ -1,0 +1,25 @@
+/*html,body{
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}*/
+.main{
+  width: 50vw;
+  margin: 0 auto;
+}
+.avatar{
+  float: left;
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;
+  margin: 5px;
+}
+h1{
+  color: #ACB68B;
+}
+p{
+  color: #6C2ACA;
+}

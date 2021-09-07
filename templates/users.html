@@ -1,0 +1,34 @@
+{% extends 'structure.html' %}
+
+{% block title %} Users {% endblock title %}
+
+{% block main %}
+<link rel="stylesheet" href="/static/css/materialize/css/materialize.css">
+<h1>Users</h1>
+<table class="pure-table pure-table-bordered">
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{user[1]}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+          <td><a href="/updateuser/{{user[0]}}"><i class="fas fa-edit"></i></a> - <a href="/deleteuser/{{user[0]}}"><i class="fas fa-trash"></i></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  <div>
+    <ul class="pagination">
+      <li>{% if prev > 0%}<a href="/admin/users/{{prev}}" class="wave-effect"><i class="fas fa-arrow-left"></i></a>{% else %}<a href="#!" class="disabled"><i class="fas fa-arrow-left"></i></a>{% endif %}</li>
+      <li><a href="#!"class="disabled"> - more - </a></li>
+      <li><a href="/admin/users/{{next}}" class="wave-effect"><i class="fas fa-arrow-right"></i></a></li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="/static/css/materialize/js/materialize.min.js"></script>
+{% endblock main %}

@@ -1,0 +1,30 @@
+{% extends 'structure.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block main %}
+<link rel="stylesheet" href="/static/css/materialize/css/materialize.css">
+<h1>Admin Dashboard</h1>
+<p>Welcome to our admin dashboard</p>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Users</span>
+    <p>Total users signups: {{totalusers}}</p>
+    <p>Total users signups in 24 hours: {{totalusers24}}</p>
+  </div>
+  <div class="card-action">
+    <a href="/admin/users">List Users</a>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Tasks</span>
+    <p>Total tasks created: {{totaltasks}}</p>
+    <p>Total tasks created in 24 hours: {{totaltasks24}}</p>
+  </div>
+  <div class="card-action">
+    <a href="/readtasks">List Tasks</a>
+  </div>
+</div>
+<script type="text/javascript" src="/static/css/materialize/js/materialize.min.js"></script> 
+{% endblock main %}

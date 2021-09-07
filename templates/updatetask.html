@@ -1,0 +1,17 @@
+{% extends 'structure.html' %}
+
+{% block title %} Update Task {% endblock title %}
+
+{% block main %}
+<h1>Update Task</h1>
+<form action="/updatetask/{{task[0]}}" method="post" class="pure-form">
+  <input type="text" name="task" placeholder="Update Task" value="{{task[1]}}">
+  <input type="date" name="duedate" value="{{task[2]}}">
+  {% if task[3] == 0 %}
+    <input type="checkbox" name="done">
+  {% else %}
+    <input type="checkbox" name="done" checked=true>
+  {% endif %}
+    <button type="submit" class="pure-button pure-button-primary"><i class="fas fa-save"></i> Update</button>
+</form>
+{% endblock main %}

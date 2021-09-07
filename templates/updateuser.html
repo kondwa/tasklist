@@ -1,0 +1,15 @@
+{% extends 'structure.html' %}
+
+{% block title %}Update User{% endblock title %}
+
+{% block main %}
+<h1>Update User</h1>
+{{message}}
+<form  action="/updateuser/{{user[0]}}" method="post" class="pure-form pure-form-stacked">
+  <input type="text" name="firstname" placeholder="First name" value="{{user[1]}}">
+  <input type="text" name="lastname" placeholder="Last name" value="{{user[2]}}">
+  <input type="text" name="username" placeholder="Username" value="{{user[3]}}">
+  <input type="password" name="password" placeholder="Password" value="{{user[4]}}">
+  <input type="submit" value="Update" class="pure-button pure-button-primary">
+</form>
+{% endblock main %}
